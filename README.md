@@ -1,6 +1,7 @@
 # watcher
 
-[![Build Status](https://travis-ci.org/radovskyb/watcher.svg?branch=master)](https://travis-ci.org/radovskyb/watcher)
+**Note**: This is a custom fork that lets me keep it from spamming me with events every loop, as I
+am just using this to restart a process when files changes.
 
 `watcher` is a Go package for watching for files or directory changes (recursively or non recursively) without using filesystem events, which allows it to work cross platform consistently.
 
@@ -24,7 +25,7 @@ Events contain the `os.FileInfo` of the file or directory that the event is base
 # Installation
 
 ```shell
-go get -u github.com/radovskyb/watcher/...
+go get -u github.com/bzvestey/watcher/...
 ```
 
 # Features
@@ -55,7 +56,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/radovskyb/watcher"
+	"github.com/bzvestey/watcher"
 )
 
 func main() {
@@ -121,7 +122,7 @@ func main() {
 ```
 
 # Contributing
-If you would ike to contribute, simply submit a pull request.
+If you would like to contribute, simply submit a pull request.
 
 # Command
 

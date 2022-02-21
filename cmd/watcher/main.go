@@ -11,7 +11,7 @@ import (
 	"time"
 	"unicode"
 
-	"github.com/radovskyb/watcher"
+	"github.com/bzvestey/watcher"
 )
 
 func main() {
@@ -24,6 +24,7 @@ func main() {
 	stdinPipe := flag.Bool("pipe", false, "pipe event's info to command's stdin")
 	keepalive := flag.Bool("keepalive", false, "keep alive when a cmd returns code != 0")
 	ignore := flag.String("ignore", "", "comma separated list of paths to ignore")
+	maxEvents := flag.Int("max-events", 0, "max number events to report per loop, the default of 0 represents no maximum")
 
 	flag.Parse()
 
@@ -52,6 +53,7 @@ func main() {
 	// Create a new Watcher with the specified options.
 	w := watcher.New()
 	w.IgnoreHiddenFiles(!*dotfiles)
+	w.SetMaxEvents(*maxEvents)
 
 	// Get any of the paths to ignore.
 	ignoredPaths := strings.Split(*ignore, ",")
